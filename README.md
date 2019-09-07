@@ -10,7 +10,7 @@ $ boilr template save . drone-secret -f
 create a project in directory my-secrets:
 
 ```console
-$ boilr template use drone-convert my-secrets
+$ boilr template use drone-secret my-secrets
 ```
 
 enter the docker registry name for this project:
