@@ -6,8 +6,8 @@ package plugin
 
 import (
 	"context"
-	"errors"
 
+	"github.com/drone/drone-go/drone"
 	"github.com/drone/drone-go/plugin/secret"
 )
 
@@ -41,20 +41,20 @@ func (p *plugin) Find(ctx context.Context, req *secret.Request) (*drone.Secret, 
 	// TODO this should be modified or removed. This
 	// demonstrates how we could return secrets to
 	// pipeline based on name and path.
-	if req.Path = "docker" {
+	if req.Path == "docker" {
 		switch req.Name {
 		case "username":
-			return &drone.Secret{
+			return nil, &drone.Secret{
 				Name:        "username",
 				Data:        "octocat",
 				PullRequest: false, // never expose to pulls requests
-			}
+			}, nil
 		case "password":
-			return &drone.Secret{
+			return nil, &drone.Secret{
 				Name:        "password",
-				Data:        "correct-horse-battery-staple",	
+				Data:        "correct-horse-battery-staple",
 				PullRequest: false, // never expose to pulls requests
-			}
+			}, nil
 		}
 	}
 
