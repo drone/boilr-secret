@@ -20,7 +20,7 @@ $ docker run -d \
   --name=secrets {{DockerRepository}}
 ```
 
-Update your Drone server configuration to include the plugin address and the shared secret.
+Update your runner configuration to include the plugin address and the shared secret.
 
 ```text
 DRONE_SECRET_PLUGIN_ENDPOINT=http://1.2.3.4:3000
