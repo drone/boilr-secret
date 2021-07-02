@@ -44,13 +44,13 @@ func (p *plugin) Find(ctx context.Context, req *secret.Request) (*drone.Secret, 
 	if req.Path == "docker" {
 		switch req.Name {
 		case "username":
-			return nil, &drone.Secret{
+			return &drone.Secret{
 				Name:        "username",
 				Data:        "octocat",
 				PullRequest: false, // never expose to pulls requests
 			}, nil
 		case "password":
-			return nil, &drone.Secret{
+			return &drone.Secret{
 				Name:        "password",
 				Data:        "correct-horse-battery-staple",
 				PullRequest: false, // never expose to pulls requests
